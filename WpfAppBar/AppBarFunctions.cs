@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -231,6 +231,9 @@ namespace WpfAppBar
             var dimension = toWpfUnit.Transform(new Vector(
                 (barData.rc.right - barData.rc.left), 
                 (barData.rc.bottom - barData.rc.top)));
+
+            // sometimes it calculates invalid new size, so ignore it if either X or Y is zero or negative.
+            if (dimension.X <= 0 || dimension.Y <= 0) return;
 
             var rect = new Rect(location, new Size(dimension.X, dimension.Y));
             info.DockedSize = rect;
