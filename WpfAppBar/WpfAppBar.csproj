@@ -1,6 +1,7 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
   <PropertyGroup>
-    <TargetFrameworks>netcoreapp3.1;net461;net5.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFramework>net9.0-windows</TargetFramework>
     <OutputType>Library</OutputType>
     <UseWPF>true</UseWPF>
     <Version>3.0.0.0</Version>
@@ -9,14 +10,4 @@
     <Copyright>Creative Commons CC0 (https://creativecommons.org/publicdomain/zero/1.0/)s</Copyright>
   </PropertyGroup>
 
-  <!-- Conditionally obtain references for the .NET Framework 4.6.1 target -->
-  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xaml" />
-
-    <PackageReference Include="WindowsBase" Version="4.6.1055.0" />
-  </ItemGroup>
 </Project>
